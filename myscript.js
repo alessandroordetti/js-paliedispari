@@ -40,10 +40,25 @@ document.getElementById('paragraph').innerHTML += ` : La parola ${newWord}`;
 
 const oddOrEven = prompt('Scegli tra pari e dispari');
 
+while (oddOrEven !== "pari" && oddOrEven !== "dispari") {
+    prompt('Scegli tra pari e dispari');
+}
+
 let userNumber = parseInt(prompt('Scegli un numero tra uno e 5'));
 
 while (isNaN(userNumber) || userNumber > 5 || userNumber < 1) {
     userNumber = parseInt(prompt('Scegli un numero tra uno e 5'));
 }
 
+let computerNumber = Math.floor(Math.random() * 5) + 1;
+console.log(computerNumber);
+
+let sum = computerNumber + userNumber;
+
+function isOdd (number) {
+    if (number % 2 == 1) {
+        return true;
+    }
+    return false;
+}
 
