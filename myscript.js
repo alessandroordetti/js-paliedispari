@@ -30,7 +30,7 @@ function isPalindromo (word) {
             console.log(word + "è un nome palindromo");
         }
     }
-    return ' è un nome palindromo';
+    return ' non è un nome palindromo';
 }
 
 let newWord = isPalindromo(word);
@@ -38,27 +38,57 @@ let newWord = isPalindromo(word);
 document.getElementById('paragraph').innerHTML += ` : La parola ${newWord}`;
 
 
-const oddOrEven = prompt('Scegli tra pari e dispari');
+
+
+/* Seconda parte dell'esercizio */
+const oddOrEven = prompt('Scegli tra pari e dispari').trim().toLowerCase();
 
 while (oddOrEven !== "pari" && oddOrEven !== "dispari") {
     prompt('Scegli tra pari e dispari');
 }
 
-let userNumber = parseInt(prompt('Scegli un numero tra uno e 5'));
+console.log(oddOrEven);
 
-while (isNaN(userNumber) || userNumber > 5 || userNumber < 1) {
-    userNumber = parseInt(prompt('Scegli un numero tra uno e 5'));
-}
 
-let computerNumber = Math.floor(Math.random() * 5) + 1;
-console.log(computerNumber);
-
-let sum = computerNumber + userNumber;
-
+/* Funzione per checkare se il numero è dispari o pari */
 function isOdd (number) {
-    if (number % 2 == 1) {
+    if (number % 2 === 1) {
         return true;
     }
     return false;
 }
+
+/* Funzione per far generare un numero random al computer */
+function computerRandomNumber(minNum, maxNum) {
+    return Math.floor(Math.random() * (maxNum - minNum) + minNum);
+}
+
+const computerNumber = computerRandomNumber(1, 5);
+
+console.log(`Il numero scelto dal pc è: ` + computerNumber);
+
+
+let userNumber = parseInt(prompt('Scegli un numero tra 1 e 5'));
+
+while (isNaN(userNumber) || userNumber > 5 || userNumber < 1) {
+    userNumber = parseInt(prompt('Scegli un numero tra 1 e 5'));
+}
+
+console.log(`Il numero scelto da te è: ` + userNumber);
+
+function sum (userNum, computerNum) {
+    return isOdd(userNum + computerNum);
+}
+
+if(oddOrEven == (sum(isOdd))) {
+    console.log('Hai vinto!');
+} else {
+    console.log('Il computer ti ha battuto');
+}
+
+const sumUserAndComputerNumber = sum (userNumber, computerNumber);
+
+console.log(sumUserAndComputerNumber);
+
+
 
